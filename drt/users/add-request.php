@@ -298,7 +298,7 @@ while($row=mysqli_fetch_array($ret))
 
 <div class="form-group">
                                                                                                                         <label for="frequency_of_report">
-                                                                                                                                Approver Designation
+                                                                                                                                Frequency Of Report
                                                                                                                         </label>
                                                                         <input type="text" name="frequency_of_report" class="form-control"  placeholder="frequency of report" required="required">
                                                                                                                 </div>
