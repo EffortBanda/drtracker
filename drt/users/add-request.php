@@ -15,13 +15,23 @@ $requester_phone=$_POST['requester_phone'];
 $requester_email=$_POST['requester_email'];
 $requester_organization=$_POST['requester_organization'];
 $date_data_required=$_POST['date_data_required'];
+$title_of_request=$_POST['title_of_request'];
+$description_of_request=$_POST['description_of_request'];
 $type_of_data_required=$_POST['type_of_data_required'];
 $intended_use_of_requested_data=$_POST['intended_use_of_requested_data'];
 $type_of_access_format=$_POST['type_of_access_format'];
 $data_disposal_arrangement_after_use=$_POST['data_disposal_arrangement_after_use'];
+$approval_organization=$_POST['approval_organisation'];
+$approver_name=$_POST['approver_name'];
+$approver_designation=$_POST['approver_designation'];
+$approval_date=$_POST['approval_date'];
+$approval_supporting_document=$_POST['approval_supporting_document'];
+$frequency_of_report=$_POST['frequency_of_report'];
+$cdr_member_assigned=$_POST['cdr_member_assigned'];
+$co_requesters=$_POST['co_requesters'];
 
 
-$sql=mysqli_query($con,"insert into drequest_tracker(date_request_received,requester_first_name,requester_last_name,requester_position,requester_phone,requester_email,requester_organization,date_data_required,type_of_data_required,intended_use_of_requested_data,type_of_access_format,data_disposal_arrangement_after_use,request_status) values('$date_request_received','$requester_first_name','$requester_last_name','$requester_position','$requester_phone','$requester_email','$requester_organization','$date_data_required','$type_of_data_required','$intended_use_of_requested_data','$type_of_access_format','$data_disposal_arrangement_after_use','received')");
+$sql=mysqli_query($con,"insert into drequest_tracker(date_request_received,requester_first_name,requester_last_name,requester_position,requester_phone,requester_email,requester_organization,date_data_required,title_of_request,description_of_request,type_of_data_required,intended_use_of_requested_data,type_of_access_format,data_disposal_arrangement_after_use,approval_organization,approver_name,approver_designation,approval_date,approval_supporting_document,frequency_of_report,cdr_member_assigned,co_requesters,request_status) values('$date_request_received','$requester_first_name','$requester_last_name','$requester_position','$requester_phone','$requester_email','$requester_organization','$date_data_required','$title_of_request','$description_of_request','$type_of_data_required','$intended_use_of_requested_data','$type_of_access_format','$data_disposal_arrangement_after_use','$approval_organization','$approver_name','$approver_designation','$approval_date','$approval_supporting_document','$frequency_of_report','$cdr_member_assigned','$co_requesters','received')");
 if($sql)
 {
 echo "<script>alert('Data Request Info Added Succesfully');</script>";
@@ -133,7 +143,7 @@ error:function (){}
 															<label for="date_request_received">
 																Date Of Request
 															</label>
-					<input type="date" name="date_request_received" class="form-control" value="<?= date('Y-m-d', time()); ?>" readonly>
+					<input type="date" name="date_request_received" class="form-control" value="<?= date('Y-m-d', time()); ?>" >
 														</div>
 
 
@@ -196,6 +206,22 @@ while($row=mysqli_fetch_array($ret))
 															</label>
 					<input type="date" name="date_data_required" class="form-control"  placeholder="yyyy-mm-dd" required="true" min="2021-01-01" max="2030-12-31">
 														</div>
+
+<div class="form-group">
+                                                                                                                        <label for="title_of_request">
+                                                                                                                                Title Of Request
+                                                                                                                        </label>
+                                                                        <input type="text" name="title_of_request" class="form-control"  placeholder="What is the title of the data request" required="required">
+                                                                                                                </div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="description_of_request">
+                                                                                                                                Description Of Request
+                                                                                                                        </label>
+                                                                        <input type="text" name="description_of_request" class="form-control"  placeholder="What is the description of the data request" required="required">
+                                                                                                                </div>
+
 														
 <div class="form-group">
 															<label for="type_of_data_required">
@@ -224,8 +250,74 @@ while($row=mysqli_fetch_array($ret))
 															</label>
 									<input type="text" name="data_disposal_arrangement_after_use" class="form-control"  placeholder="Write the data disposal format" required="required">
 														</div>
-														
 
+<div class="form-group">
+                                                                                                                        <label for="approval_organization">
+                                                                                                                                Request Approval Organization
+                                                                                                                        </label>
+                                                                        <input type="text" name="approval_organization" class="form-control"  placeholder="The organisation that approved the data request" required="required">
+                                                                                                                </div>
+
+<div class="form-group">
+                                                                                                                        <label for="approver_name">
+                                                                                                                                Approver Full Name
+                                                                                                                        </label>
+                                                                        <input type="text" name="approver_name" class="form-control"  placeholder="Person Responsible for approval of data request" required="required">
+                                                                                                                </div>			
+
+
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="approver_designation">
+                                                                                                                                Approver Designation
+                                                                                                                        </label>
+                                                                        <input type="text" name="approver_designation" class="form-control"  placeholder="approver designation" required="required">
+                                                                                                                </div>
+
+
+											
+
+<div class="form-group">
+                                                                                                                        <label for="approval_date">
+                                                                                                                                Request Approval Date
+                                                                                                                        </label>
+                                        <input type="date" name="approval_date" class="form-control"  placeholder="yyyy-mm-dd" required="true" min="2021-01-01" max="2030-12-31">
+                                                                                                                </div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="approval_supporting_document">
+                                                                                                                                 Approval Supporting Document
+                                                                                                                        </label>
+        <input type="file" required="true" accept=".doc,.docx,.sql,.txt,.pdf" name="approval_supporting_document" class="form-control" value="<?php echo htmlentities($data['approval_supporting_document']);?>" >
+                                                                                                                </div>
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="frequency_of_report">
+                                                                                                                                Approver Designation
+                                                                                                                        </label>
+                                                                        <input type="text" name="frequency_of_report" class="form-control"  placeholder="frequency of report" required="required">
+                                                                                                                </div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="cdr_member_assigned">
+                                                                                                                                CDR Member Assigned
+                                                                                                                        </label>
+                                                                        <input type="text" name="cdr_member_assigned" class="form-control"  placeholder="CDR Member Assigned" required="required">
+                                                                                                                </div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="co_requesters">
+                                                                                                                                Co-Requester/s
+                                                                                                                        </label>
+                                                                        <input type="text" name="co_requesters" class="form-control"  placeholder="co requesters" required="required">
+                                                                                                                </div>
 														
 													
 														

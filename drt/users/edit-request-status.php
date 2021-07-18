@@ -31,7 +31,7 @@ header('location:manage-requests2.php');
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | Edit Data request Details</title>
+		<title>Admin | Update data request status</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -70,7 +70,7 @@ header('location:manage-requests2.php');
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">User | Edit Data request details Details</h1>
+									<h1 class="mainTitle">User | Update data request status</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
@@ -112,7 +112,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="date_request_received">
 																 Date Request Received
 															</label>
-	<input type="date" name="date_request_received" class="form-control" value="<?php echo htmlentities($data['date_request_received']);?>" >
+	<input type="date" name="date_request_received" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['date_request_received']);?>" >
 														</div>
 														
 
@@ -120,28 +120,28 @@ while($data=mysqli_fetch_array($sql))
 															<label for="requester_first_name">
 																 Requester's First Name
 															</label>
-	<input type="text" name="requester_first_name" class="form-control" value="<?php echo htmlentities($data['requester_first_name']);?>" >
+	<input type="text" name="requester_first_name" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['requester_first_name']);?>" >
 														</div>
 														
 <div class="form-group">
 															<label for="requester_last_name">
 																 Requester Last Name
 															</label>
-	<input type="text" name="requester_last_name" class="form-control" value="<?php echo htmlentities($data['requester_last_name']);?>" >
+	<input type="text" name="requester_last_name" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['requester_last_name']);?>" >
 														</div>
 														
 <div class="form-group">
 															<label for="requester_position">
 																 Requester's Position
 															</label>
-	<input type="text" name="requester_position" class="form-control" value="<?php echo htmlentities($data['requester_position']);?>" >
+	<input type="text" name="requester_position" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['requester_position']);?>" >
 														</div>
 														
 <div class="form-group">
 															<label for="requester_phone">
 																 Requester's Phone
 															</label>
-	<input type="text" name="requester_phone" class="form-control" value="<?php echo htmlentities($data['requester_phone']);?>" >
+	<input type="text" name="requester_phone" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['requester_phone']);?>" >
 														</div>
 														
 														
@@ -149,7 +149,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="requester_email">
 																 Requester's E-mail
 															</label>
-	<input type="text" name="requester_email" class="form-control" value="<?php echo htmlentities($data['requester_email']);?>" >
+	<input type="text" name="requester_email" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['requester_email']);?>" >
 														</div>
 														
 														
@@ -157,7 +157,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="requester_organization">
 																 Requester's Organization
 															</label>
-	<input type="text" name="requester_organization" class="form-control" value="<?php echo htmlentities($data['requester_organization']);?>" >
+	<input type="text" name="requester_organization" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['requester_organization']);?>" >
 														</div>
 														
 														
@@ -165,7 +165,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="date_data_required">
 																 Date data is required
 															</label>
-	<input type="date" name="date_data_required" class="form-control" value="<?php echo htmlentities($data['date_data_required']);?>" >
+	<input type="date" name="date_data_required" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['date_data_required']);?>" >
 														</div>
 														
 														
@@ -173,7 +173,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="type_of_data_required">
 																 Type of data required
 															</label>
-	<input type="text" name="type_of_data_required" class="form-control" value="<?php echo htmlentities($data['type_of_data_required']);?>" >
+	<input type="text" name="type_of_data_required" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['type_of_data_required']);?>" >
 														</div>
 														
 														
@@ -181,7 +181,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="intended_use_of_requested_data">
 																 Intended Use of Requested Data
 															</label>
-	<input type="text" name="intended_use_of_requested_data" class="form-control" value="<?php echo htmlentities($data['intended_use_of_requested_data']);?>" >
+	<input type="text" name="intended_use_of_requested_data" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['intended_use_of_requested_data']);?>" >
 														</div>
 														
 														
@@ -189,7 +189,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="type_of_access_format">
 																 Type of Access Format
 															</label>
-	<input type="text" name="type_of_access_format" class="form-control" value="<?php echo htmlentities($data['type_of_access_format']);?>" >
+	<input type="text" name="type_of_access_format" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['type_of_access_format']);?>" >
 														</div>
 														
 														
@@ -197,7 +197,7 @@ while($data=mysqli_fetch_array($sql))
 															<label for="data_disposal_arrangement_after_use">
 																 Data disposal arrangement
 															</label>
-	<input type="text" name="data_disposal_arrangement_after_use" class="form-control" value="<?php echo htmlentities($data['data_disposal_arrangement_after_use']);?>" >
+	<input type="text" name="data_disposal_arrangement_after_use" class="form-control" readonly="readonly" value="<?php echo htmlentities($data['data_disposal_arrangement_after_use']);?>" >
 														</div>
 <div class="form-group">
 															<label for="request_status">

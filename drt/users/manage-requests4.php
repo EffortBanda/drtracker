@@ -51,7 +51,7 @@ if(isset($_GET['del']))
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">User | Finalise Requests</h1>
+									<h1 class="mainTitle">User | Finalised Requests</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
@@ -109,7 +109,7 @@ while($row=mysqli_fetch_array($sql))
 												
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a href="edit-request-status1.php?id=<?php echo $row['request_id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+							<a href="edit-request-status2.php?id=<?php echo $row['request_id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
 													
 	<a href="manage-requests3.php?id=<?php echo $row['request_id']?>&del=delete" onClick="return confirm('Are you sure you want to delete selected request?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												

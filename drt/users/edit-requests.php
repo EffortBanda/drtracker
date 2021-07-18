@@ -15,11 +15,21 @@ $requester_phone=$_POST['requester_phone'];
 $requester_email=$_POST['requester_email'];
 $requester_organization=$_POST['requester_organization'];
 $date_data_required=$_POST['date_data_required'];
+$title_of_request=$_POST['title_of_request'];
+$description_of_request=$_POST['description_of_request'];
 $type_of_data_required=$_POST['type_of_data_required'];
 $intended_use_of_requested_data=$_POST['intended_use_of_requested_data'];
 $type_of_access_format=$_POST['type_of_access_format'];
 $data_disposal_arrangement_after_use=$_POST['data_disposal_arrangement_after_use'];
-$sql=mysqli_query($con,"update drequest_tracker set date_request_received='$date_request_received', requester_first_name='$requester_first_name',requester_last_name='$requester_last_name',requester_position='$requester_position',requester_phone='$requester_phone',requester_email='$requester_email',requester_organization='$requester_organization',type_of_data_required='$type_of_data_required',intended_use_of_requested_data='$intended_use_of_requested_data',type_of_access_format='$type_of_access_format',data_disposal_arrangement_after_use='$data_disposal_arrangement_after_use' where request_id='$did'");
+$approval_organization=$_POST['approval_organisation'];
+$approver_name=$_POST['approver_name'];
+$approver_designation=$_POST['approver_designation'];
+$approval_date=$_POST['approval_date'];
+$approval_supporting_document=$_POST['approval_supporting_document'];
+$frequency_of_report=$_POST['frequency_of_report'];
+$cdr_member_assigned=$_POST['cdr_member_assigned'];
+$co_requesters=$_POST['co_requesters'];
+$sql=mysqli_query($con,"update drequest_tracker set date_request_received='$date_request_received', requester_first_name='$requester_first_name',requester_last_name='$requester_last_name',requester_position='$requester_position',requester_phone='$requester_phone',requester_email='$requester_email',requester_organization='$requester_organization',date_data_required='$date_data_required',title_of_request='$title_of_request',description_of_request='$description_of_request,'type_of_data_required='$type_of_data_required',intended_use_of_requested_data='$intended_use_of_requested_data',type_of_access_format='$type_of_access_format',data_disposal_arrangement_after_use='$data_disposal_arrangement_after_use',approval_organization='$approval_organization',approver_name='$approver_name',approver_designation='$approver_designation',approval_date='$approval_date',approval_supporting_document='$approval_supporting_document',frequency_of_report='$frequency_of_report',cdr_member_assigned='$cdr_member_assigned',co_requesters='$co_requesters' where request_id='$did'");
 if($sql)
 {
 $msg="Data request details updated Successfully";
@@ -186,6 +196,26 @@ while($row=mysqli_fetch_array($ret))
 															</label>
 	<input type="text" name="type_of_data_required" class="form-control" value="<?php echo htmlentities($data['type_of_data_required']);?>" >
 														</div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="title_of_request">
+                                                                                                                                 Title Of Data Request
+                                                                                                                        </label>
+        <input type="text" name="title_of_request" class="form-control" value="<?php echo htmlentities($data['title_of_request']);?>" >
+                                                                                                                </div>
+
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="description_of_request">
+                                                                                                                                 Description Of Request
+                                                                                                                        </label>
+        <input type="text" name="description_of_request" class="form-control" value="<?php echo htmlentities($data['description_of_request']);?>" >
+                                                                                                                </div>
+
+
 														
 														
 <div class="form-group">
@@ -210,6 +240,78 @@ while($row=mysqli_fetch_array($ret))
 															</label>
 	<input type="text" name="data_disposal_arrangement_after_use" class="form-control" value="<?php echo htmlentities($data['data_disposal_arrangement_after_use']);?>" >
 														</div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="approval_organization">
+                                                                                                                                 Approval Organisation
+                                                                                                                        </label>
+        <input type="text" name="approval_organization" class="form-control" value="<?php echo htmlentities($data['approval_organization']);?>" >
+                                                                                                                </div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="approver_name">
+                                                                                                                                 Approver Full Name
+                                                                                                                        </label>
+        <input type="text" name="approver_name" class="form-control" value="<?php echo htmlentities($data['approver_name']);?>" >
+                                                                                                                </div>
+
+
+<div class="form-group">
+                                                                                                                        <label for="approver_designation">
+                                                                                                                                 Approver Designation
+                                                                                                                        </label>
+        <input type="text" name="approver_designation" class="form-control" value="<?php echo htmlentities($data['approver_designation']);?>" >
+                                                                                                                </div>
+
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="approval_date">
+                                                                                                                                 Approval Date
+                                                                                                                        </label>
+        <input type="date" name="approval_date" class="form-control" value="<?php echo htmlentities($data['approval_date']);?>" >
+                                                                                                                </div>
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="approval_supporting_document">
+                                                                                                                                 Approval Supporting Document
+                                                                                                                        </label>
+        <input type="file" required="true" accept=".doc,.docx,.sql,.txt,.pdf" name="approval_supporting_document" class="form-control" value="<?php echo htmlentities($data['approval_supporting_document']);?>" >
+                                                                                                                </div>
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="frequency_of_report">
+                                                                                                                                Frequency Of Report
+                                                                                                                        </label>
+        <input type="text" name="frequency_of_report" class="form-control" value="<?php echo htmlentities($data['frequency_of_report']);?>" >
+                                                                                                                </div>
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="cdr_member_assigned">
+                                                                                                                                CDR Member Assigned
+                                                                                                                        </label>
+        <input type="text" name="cdr_member_assigned" class="form-control" value="<?php echo htmlentities($data['cdr_member_assigned']);?>" >
+                                                                                                                </div>
+
+
+
+<div class="form-group">
+                                                                                                                        <label for="co_requesters">
+                                                                                                                                Co Requester/s
+                                                                                                                        </label>
+        <input type="text" name="co_requesters" class="form-control" value="<?php echo htmlentities($data['co_requesters']);?>" >
+                                                                                                                </div>
+
+
 
 
 

@@ -60,6 +60,11 @@
 										</a>
 									</li>
 									
+                                                                                                                                                <li>
+                                                                                <a href="manage-requests4.php">
+                                                                                        <span class="title"> Manage/Edit Requests submitted </span>
+                                                                                </a>
+                                                                        </li>
 									
 									
 								</ul>
